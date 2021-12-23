@@ -17,11 +17,10 @@ import matplotlib
 matplotlib.rc('font', family='sans-serif') 
 matplotlib.rc('font', serif='Arial')
 ##############################################
-all_name = 'combinedFINAL' ## This is attached to all transition files from a previous analysis step
+all_name = 'samp_photo' ## This is attached to all transition files from a previous analysis step
 NREM2REM_name = all_name +'_NREM2REM.txt' ## filename for NREM-to-REM transitions
 NREM2wake_name = all_name+'_NREM2wake.txt' ## filename for NREM-to-wake transitions
 REM2wake_name = all_name +'_REM2wake.txt' ## filename for REM-to-wake transitions
-REM2NREM_name = all_name+'_REM2NREM.txt' ## filename for REM-to-NREM transitions
 wake2NREM_name = all_name+'_wake2NREM.txt' ## filename for wake-to-NREM transitions
 zScore = True ##whether to z-score the date or plot raw values. If true, z-score the data
 secBeforeAndAfter = 30 ## seconds to plot before and after the transition
@@ -166,22 +165,18 @@ with open(NREM2wake_name, newline='') as inputfile:
     NREM2wake = list(csv.reader(inputfile))
 with open(REM2wake_name, newline='') as inputfile:
     REM2wake = list(csv.reader(inputfile))
-with open(REM2NREM_name, newline='') as inputfile:
-    REM2NREM = list(csv.reader(inputfile))    
+  
 with open(wake2NREM_name, newline='') as inputfile:
     wake2NREM = list(csv.reader(inputfile))    
 NREM2REM = clean_up_imports(NREM2REM)
 NREM2wake = clean_up_imports(NREM2wake)
 REM2wake = clean_up_imports(REM2wake)
-REM2NREM = clean_up_imports(REM2NREM)
 wake2NREM = clean_up_imports(wake2NREM)
 NREM2REM_downsample = downsampleAll(NREM2REM)
 NREM2wake_downsample = downsampleAll(NREM2wake)
 REM2wake_downsample = downsampleAll(REM2wake)
-REM2NREM_downsample = downsampleAll(REM2NREM)
 wake2NREM_downsample = downsampleAll(wake2NREM)
 create_heatmap(NREM2REM_downsample, 'NREM to REM')
 create_heatmap(NREM2wake_downsample, 'NREM to Wake')
 create_heatmap(REM2wake_downsample, 'REM to Wake')
-create_heatmap(REM2NREM_downsample, 'REM to NREM')
 create_heatmap(wake2NREM_downsample, 'Wake to NREM')

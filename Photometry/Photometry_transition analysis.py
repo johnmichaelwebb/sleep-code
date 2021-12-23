@@ -16,7 +16,7 @@ matplotlib.rc('font', family='sans-serif')
 matplotlib.rc('font', serif='Arial')
 ##############################################
 
-all_name = 'combinedFINAL' ## This is attached to all transition files from a previous analysis step
+all_name = 'samp_photo' ## This is attached to all transition files from a previous analysis step
 NREM2REM_name = all_name +'_NREM2REM.txt' ## filename for NREM-to-REM transitions
 NREM2wake_name = all_name+'_NREM2wake.txt' ## filename for NREM-to-wake transitions
 REM2wake_name = all_name +'_REM2wake.txt' ## filename for REM-to-wake transitions

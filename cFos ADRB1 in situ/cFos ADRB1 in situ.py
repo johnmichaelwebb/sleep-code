@@ -11,7 +11,6 @@ import matplotlib.pyplot as plt
 import scipy.stats as st
 import seaborn as sns
 import pandas as pd
-from statannot import add_stat_annotation
 ##############################################
 ##############################################
 ##############################################
@@ -25,7 +24,6 @@ def createDataFrame(frame, data, name, index):
     for i in range(len(data)):
         frame[name][i+index] = data[i]
     return frame
-
 
 def plotDots(wt,wtName, mut,mutName, ylabel,name):
     ## plots a boxplot with a swarmplot for a give dataset
@@ -48,15 +46,9 @@ def plotDots(wt,wtName, mut,mutName, ylabel,name):
     g2 = sns.boxplot(x="condition", y="cFos", data=framee, palette = ["lightgray",'dodgerblue'], linewidth =1)
     sns.swarmplot(x = "condition", y = "cFos", data = framee,palette = ["dimgray",'dimgray'], alpha = 1, s = 8)
     sns.despine()
-    # order = [wtName, mutName]
-    # test_results = add_stat_annotation(g2, data=framee, x='condition', y='cFos', order=order,
-    #                                box_pairs=[(wtName, mutName)],
-    #                                test='t-test_ind', text_format='star',
-                                   # loc='outside', verbose=2)
     plt.xlabel('')
     plt.ylabel(ylabel, fontsize = globalFont)
     plt.tight_layout()
-    # plt.title(name, fontsize = globalFont)
     plt.savefig(name +global_name+".pdf")
     plt.show()
     return

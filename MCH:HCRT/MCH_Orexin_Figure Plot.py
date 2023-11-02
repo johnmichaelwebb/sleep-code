@@ -19,7 +19,7 @@ matplotlib.rc('font', serif='Arial')
 matplotlib.rcParams.update({'font.size': 22})
 
 
-data_dir = 'Data/'
+data_dir = 'Data for figure/'
 gross_name = 'mch 4 mice gross instructions.csv'
 fileName = data_dir+gross_name
 savename = gross_name[0:len(gross_name)-4]
